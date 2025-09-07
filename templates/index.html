@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+  <form method="POST" class="row g-2">
+    <div class="col-9">
+      <input type="text" name="long_url" class="form-control" placeholder="Enter the long URL (e.g. example.com)" required>
+    </div>
+    <div class="col-3">
+      <input type="text" name="custom_alias" class="form-control" placeholder="Custom alias (optional)">
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary">Shorten URL</button>
+      <a class="btn btn-link" href="{{ url_for('list_links') }}">View all links</a>
+    </div>
+  </form>
+
+  {% if short_url %}
+    <div class="mt-4">
+      <h5>Your short URL</h5>
+      <p><a href="{{ short_url }}" target="_blank">{{ short_url }}</a></p>
+    </div>
+  {% endif %}
+{% endblock %}
